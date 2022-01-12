@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Squid Maze</title>
+    <link rel="icon" type="image/png" href="images/SG_soldier.png" />
+
+    <style>
+      @font-face {
+        font-family: Game Of Squids;
+        src: url(fonts/Game\ Of\ Squids.ttf);
+      }
+
+      * {
+        font-family: Game Of Squids;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+     <!--<audio autoplay>
+      <source src="/audio/SquidGame_Theme.mp3" type="audio/mpeg" />
+    </audio>  -->
+    
+    <div class="maze-border">
+      
+      <form id="settings" action="">
+        <p class="difficult">DIFFICULT</p>
+
+        <div class="shape" id="easy" onclick="freezshapes()">
+          <ion-icon name="ellipse-outline"> </ion-icon>
+          <p class="easy">EASY</p>
+        </div>
+        <div class="shape" id="medium" onclick="freezshapes()">
+          <ion-icon name="square-outline"></ion-icon>
+          <p class="medium">MEDIUM</p>
+        </div>
+        <div class="shape" id="hard" onclick="freezshapes()">
+          <ion-icon name="triangle-outline"> </ion-icon>
+          <p class="hard">HARD</p>
+        </div>
+
+        <button type="button" id="btnGenerate" onclick="checkDiff()">
+          START
+        </button>
+      </form>
+      <canvas class="maze"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="js/maze.js"></script>
+    <script src="js/maze_move.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

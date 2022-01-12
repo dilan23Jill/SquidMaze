@@ -1,0 +1,97 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-image: url('../images/SG_backgroud.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.maze-border {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 45em;
+  height: 45em;
+  border: #fa4366 solid;
+  border-radius: 0.3em;
+  background-image: url('../images/SG_miniSoldiers.png');
+  background-size: cover;
+  background-position: 0 -11.94em;
+}
+#settings {
+  position: absolute;
+  top: 45%;
+  width: 30em;
+  height: 21.5em;
+  background-color: #ffffff;
+  border: #fa4366 solid;
+  border-radius: 0.3em;
+  z-index: -1;
+}
+.difficult {
+  text-align: center;
+  font-size: 2em;
+}
+.shape,
+.shape.unfreeze {
+  display: inline-block;
+  text-align: center;
+  margin-top: 1.5em;
+  width: 32%;
+  height: 40%;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.shape ion-icon {
+  font-size: 3em;
+  color: #1a1a1a;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+.shape:hover,
+.shape.freeze {
+  color: #fff;
+  font-size: 1.5em;
+  filter: drop-shadow(0 0 20px #fa4366) drop-shadow(0 0 50px #fa4366)
+    drop-shadow(0 0 80px #fa4366) drop-shadow(0 0 130px #fa4366)
+    drop-shadow(0 0 180px #fa4366);
+}
+.shape:hover ion-icon {
+  color: #ffffff;
+  font-size: 4em;
+}
+
+#btnGenerate {
+  position: absolute;
+  left: 50%;
+  bottom: -4%;
+  transform: translate(-50%, -50%);
+  width: 7em;
+  height: 2.5em;
+  background-color: transparent;
+  overflow: hidden;
+  z-index: 1;
+
+  border: solid 0.1em;
+  border-color: #fa4366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  border-radius: 0.3em;
+  font-size: 1.5em;
+}
+
+#btnGenerate:hover {
+  opacity: 0.7;
+}
