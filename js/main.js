@@ -20,7 +20,3 @@ freezeShape3.addEventListener("click", function () {
   this.classList.toggle("freeze");
 });
 
-let mazeBorderBack = document.querySelector(".mazeBorder");
-function hideCssBackground() {
-  mazeBorderBack.style.backgroundImage = "url(none)";
-}

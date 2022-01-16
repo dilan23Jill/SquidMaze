@@ -25,7 +25,18 @@ function checkDiff() {
     });
   }
 }
+var countDwn = document.getElementById("countDwnDiv");
+countDwn.style.display = "none";
 function startmaze() {
+  countDwn.style.display = "block";
+
+  var SquidAudio1 = new Audio("audio/redLight_greenLight.mp3");
+  SquidAudio1.play();
+
+  var mazeBorderBack = document.querySelector(".mazeBorder");
+
+  mazeBorderBack.style.backgroundImage = "url(none)";
+
   document.getElementById("btnGenerate").style.visibility = "hidden";
   document.getElementById("settings").style.visibility = "hidden";
   // inicalizacija canvasa
@@ -97,14 +108,27 @@ function startmaze() {
       }
       // Če v skladu ni več elementov, so bile vse celice obiskane in funkcijo je mogoče končati
       if (this.stack.length === 0) {
-       
         return;
       }
       //določite hitrost generiranja, in kličite funkcijo dokler funkcija ni dokončana
       window.requestAnimationFrame(() => {
-        setTimeout(() => {
-          this.draw();
-        }, 5);
+        if (document.getElementById("easy").classList.contains("freeze")) {
+          setTimeout(() => {
+            this.draw();
+          }, 60);
+        } else if (
+          document.getElementById("medium").classList.contains("freeze")
+        ) {
+          setTimeout(() => {
+            this.draw();
+          }, 30);
+        } else if (
+          document.getElementById("hard").classList.contains("freeze")
+        ) {
+          setTimeout(() => {
+            this.draw();
+          }, 15);
+        }
       });
     }
   }
@@ -280,7 +304,77 @@ function startmaze() {
       }
     }
   }
+  var i = false;
   document.addEventListener("keydown", move);
+  document.addEventListener("keydown", startcountdown);
+
+  function startcountdown() {
+    if (!i) {
+      i = true;
+      if (document.getElementById("easy").classList.contains("freeze")) {
+        var timeleft = 20;
+        var downloadTimer = setInterval(function () {
+          timeleft--;
+          document.getElementById("time").textContent = timeleft;
+          if (timeleft <= 0){
+            Swal.fire(
+              {
+                title: "YOU LOSE!",
+                html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                confirmButtonColor: "#fa4366",
+                confirmButtonText: "PLAY AGAIN",
+              }).then(function(){ 
+                location.reload();
+                }
+              
+            );clearInterval(downloadTimer);
+          } 
+        }, 1000);
+      } else if (
+        document.getElementById("medium").classList.contains("freeze")
+      ) {
+        var timeleft = 40;
+        var downloadTimer = setInterval(function () {
+          timeleft--;
+          document.getElementById("time").textContent = timeleft;
+          if (timeleft <= 0){
+            Swal.fire(
+              {
+                title: "YOU LOSE!",
+                html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                confirmButtonColor: "#fa4366",
+                confirmButtonText: "PLAY AGAIN",
+              }).then(function(){ 
+                location.reload();
+                }
+              
+            );
+            clearInterval(downloadTimer);
+          } 
+        }, 1000);
+      } else if (document.getElementById("hard").classList.contains("freeze")) {
+        var timeleft = 60;
+        var downloadTimer = setInterval(function () {
+          timeleft--;
+          document.getElementById("time").textContent = timeleft;
+          if (timeleft <= 0){ 
+            Swal.fire(
+              {
+                title: "YOU LOSE!",
+                html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                confirmButtonColor: "#fa4366",
+                confirmButtonText: "PLAY AGAIN",
+              }).then(function(){ 
+                location.reload();
+                }
+              
+            );
+            clearInterval(downloadTimer);
+          }
+        }, 1000);
+      }
+    }
+  }
   function move(e) {
     let key = e.key;
     let row = current.rowNum;
@@ -303,12 +397,22 @@ function startmaze() {
           newMaze.draw();
           current.highlighRight(newMaze.columns);
           if (current.goal) {
-            Swal.fire({
-              title: "YOU WIN!",
-              html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-              confirmButtonColor: "#fa4366",
-              confirmButtonText: "PLAY AGAIN",
-            });
+            Swal.fire(
+              {
+                title: "YOU WIN!",
+                html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                confirmButtonColor: "#fa4366",
+                confirmButtonText: "PLAY AGAIN",
+              }).then(function(){ 
+                location.reload();
+                }
+              
+            );
+            function timedRefresh(timeoutPeriod) {
+              setTimeout("location.reload(true);", timeoutPeriod);
+            }
+
+            window.onload = timedRefresh(16000);
           }
         }
         break;
@@ -325,7 +429,14 @@ function startmaze() {
               html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
               confirmButtonColor: "#fa4366",
               confirmButtonText: "PLAY AGAIN",
-            });
+            }).then(function(){ 
+              location.reload();
+              });
+            function timedRefresh(timeoutPeriod) {
+              setTimeout("location.reload(true);", timeoutPeriod);
+            }
+
+            window.onload = timedRefresh(16000);
           }
         }
         break;

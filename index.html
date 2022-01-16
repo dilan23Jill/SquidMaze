@@ -27,23 +27,25 @@
       <source src="/audio/SquidGame_Theme.mp3" type="audio/mpeg" />
     </audio>  -->
   <div class="mazeBorder">
+    <div class="countdown" id="countDwnDiv">REMAINING TIME IS <span id="time">X</span> SECONDS</div>
+
     <form id="settings" action="">
       <p class="difficult">DIFFICULT</p>
 
-      <div class="shape" id="easy" onclick="freezshapes()">
+      <div class="shape" id="easy">
         <ion-icon name="ellipse-outline"> </ion-icon>
         <p class="easy">EASY</p>
       </div>
-      <div class="shape" id="medium" onclick="freezshapes()">
+      <div class="shape" id="medium">
         <ion-icon name="square-outline"></ion-icon>
         <p class="medium">MEDIUM</p>
       </div>
-      <div class="shape" id="hard" onclick="freezshapes()">
+      <div class="shape" id="hard">
         <ion-icon name="triangle-outline"> </ion-icon>
         <p class="hard">HARD</p>
       </div>
 
-      <button type="button" id="btnGenerate" onclick="checkDiff(); hideCssBackground()">
+      <button type="button" id="btnGenerate" onclick="checkDiff(); showCountDwn()">
         START
       </button>
     </form>

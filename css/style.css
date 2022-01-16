@@ -26,7 +26,16 @@ body {
   background-size: cover;
   background-position: 0 -11.94em;
 }
-
+.countdown {
+  color: #fa4366;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 1.5em;
+}
+#time {
+  color: white;
+}
 #settings {
   position: absolute;
   top: 45%;
