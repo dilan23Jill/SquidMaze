@@ -108,7 +108,7 @@ function startmaze() {
               if (!current.walls.topWall) {
                 let next = newMaze.grid[row - 1][col];
                 current = next;
-                next.highlight(newMaze.columns);
+                current.highlight(newMaze.columns);
               }
               break;
 
@@ -116,7 +116,7 @@ function startmaze() {
               if (!current.walls.rightWall) {
                 let next = newMaze.grid[row][col + 1];
                 current = next;
-                next.highlight(newMaze.columns);
+                current.highlighRight(newMaze.columns);
                 if (current.goal) complete.style.display = "block";
               }
               break;
@@ -125,7 +125,7 @@ function startmaze() {
               if (!current.walls.bottomWall) {
                 let next = newMaze.grid[row + 1][col];
                 current = next;
-                next.highlight(newMaze.columns);
+                current.highlightDown(newMaze.columns);
                 if (current.goal) complete.style.display = "block";
               }
               break;
@@ -134,7 +134,7 @@ function startmaze() {
               if (!current.walls.leftWall) {
                 let next = newMaze.grid[row][col - 1];
                 current = next;
-                next.highlight(newMaze.columns);
+                current.highlighLeft(newMaze.columns);
               }
               break;
           }
@@ -237,7 +237,40 @@ function startmaze() {
         ctx.drawImage(img, x, y, icon_size, icon_size);
       };
     }
+    highlighRight(columns) {
+      // Dodani dodatki in odštevanja, tako da označena celica prekrije stene
+      let x = (this.colNum * this.parentSize) / columns + 1;
+      let y = (this.rowNum * this.parentSize) / columns + 1;
 
+      let img = new Image();
+      img.src = "./images/SG_face_right.png";
+      img.onload = function () {
+        ctx.drawImage(img, x, y, icon_size, icon_size);
+      };
+    }
+    highlighLeft(columns) {
+      // Dodani dodatki in odštevanja, tako da označena celica prekrije stene
+      let x = (this.colNum * this.parentSize) / columns + 1;
+      let y = (this.rowNum * this.parentSize) / columns + 1;
+
+      let img = new Image();
+      img.src = "./images/SG_face_left.png";
+      img.onload = function () {
+        ctx.drawImage(img, x, y, icon_size, icon_size);
+      };
+    }
+    highlightDown(columns) {
+      // Dodani dodatki in odštevanja, tako da označena celica prekrije stene
+      let x = (this.colNum * this.parentSize) / columns + 1;
+      let y = (this.rowNum * this.parentSize) / columns + 1;
+
+      let img = new Image();
+      img.src = "./images/SG_face_down.png";
+      img.onload = function () {
+        ctx.drawImage(img, x, y, icon_size, icon_size);
+      };
+    }
+    
 
     removeWalls(cell1, cell2) {
       // primerja z dvema celicama na osi x
