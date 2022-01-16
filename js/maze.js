@@ -97,63 +97,7 @@ function startmaze() {
       }
       // Če v skladu ni več elementov, so bile vse celice obiskane in funkcijo je mogoče končati
       if (this.stack.length === 0) {
-        document.addEventListener("keydown", move);
-        function move(e) {
-          let key = e.key;
-          let row = current.rowNum;
-          let col = current.colNum;
-
-          switch (key) {
-            case "ArrowUp":
-              if (!current.walls.topWall) {
-                let next = newMaze.grid[row - 1][col];
-                current = next;
-                current.highlight(newMaze.columns);
-              }
-              break;
-
-            case "ArrowRight":
-              if (!current.walls.rightWall) {
-                let next = newMaze.grid[row][col + 1];
-                current = next;
-                current.highlighRight(newMaze.columns);
-                if (current.goal) {
-                  Swal.fire({
-                    title: "YOU WIN!",
-                    html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-                    confirmButtonColor: "#fa4366",
-                    confirmButtonText: "PLAY AGAIN",
-
-                  });
-                }
-              }
-              break;
-
-            case "ArrowDown":
-              if (!current.walls.bottomWall) {
-                let next = newMaze.grid[row + 1][col];
-                current = next;
-                current.highlightDown(newMaze.columns);
-                if (current.goal) {
-                  Swal.fire({
-                    title: "YOU WIN!",
-                    html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-                    confirmButtonColor: "#fa4366",
-                    confirmButtonText: "PLAY AGAIN",
-                  });
-                }
-              }
-              break;
-
-            case "ArrowLeft":
-              if (!current.walls.leftWall) {
-                let next = newMaze.grid[row][col - 1];
-                current = next;
-                current.highlighLeft(newMaze.columns);
-              }
-              break;
-          }
-        }
+       
         return;
       }
       //določite hitrost generiranja, in kličite funkcijo dokler funkcija ni dokončana
@@ -336,7 +280,66 @@ function startmaze() {
       }
     }
   }
+  document.addEventListener("keydown", move);
+  function move(e) {
+    let key = e.key;
+    let row = current.rowNum;
+    let col = current.colNum;
 
+    switch (key) {
+      case "ArrowUp":
+        if (!current.walls.topWall) {
+          let next = newMaze.grid[row - 1][col];
+          current = next;
+          newMaze.draw();
+          current.highlight(newMaze.columns);
+        }
+        break;
+
+      case "ArrowRight":
+        if (!current.walls.rightWall) {
+          let next = newMaze.grid[row][col + 1];
+          current = next;
+          newMaze.draw();
+          current.highlighRight(newMaze.columns);
+          if (current.goal) {
+            Swal.fire({
+              title: "YOU WIN!",
+              html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+              confirmButtonColor: "#fa4366",
+              confirmButtonText: "PLAY AGAIN",
+            });
+          }
+        }
+        break;
+
+      case "ArrowDown":
+        if (!current.walls.bottomWall) {
+          let next = newMaze.grid[row + 1][col];
+          current = next;
+          newMaze.draw();
+          current.highlightDown(newMaze.columns);
+          if (current.goal) {
+            Swal.fire({
+              title: "YOU WIN!",
+              html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+              confirmButtonColor: "#fa4366",
+              confirmButtonText: "PLAY AGAIN",
+            });
+          }
+        }
+        break;
+
+      case "ArrowLeft":
+        if (!current.walls.leftWall) {
+          let next = newMaze.grid[row][col - 1];
+          current = next;
+          newMaze.draw();
+          current.highlighLeft(newMaze.columns);
+        }
+        break;
+    }
+  }
   let newMaze = new Maze(size, row_col, row_col);
   newMaze.setup();
   newMaze.draw();
