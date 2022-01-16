@@ -31,7 +31,6 @@ function startmaze() {
   // inicalizacija canvasa
   var maze = document.querySelector(".maze");
   let ctx = maze.getContext("2d");
-  let generationComplete = false;
   let size = 600;
 
   let icon_size = (size / (row_col * row_col)) * row_col;
@@ -61,13 +60,13 @@ function startmaze() {
       current = this.grid[0][0];
       this.grid[this.rows - 1][this.columns - 1].goal = true;
     }
-    // Narišite canvas tako, da nastavite velikost in postavite celice v grid arraya na canvasu.
+    // Nariše canvas tako, da nastavite velikost in postavite celice v grid arraya na canvasu.
     draw() {
       maze.width = this.size;
       maze.height = this.size;
       // nastavi prvi cell kot visited
-         maze.style.background = "url('./images/SG_frontMan.png')";
-         
+      maze.style.background = "url('./images/SG_frontMan.png')";
+
       current.visited = true;
       // Pojdite skozi 2d mrežno arraya in kličite metodo show za vsako celiceo
       for (let r = 0; r < this.rows; r++) {
@@ -98,15 +97,55 @@ function startmaze() {
       }
       // Če v skladu ni več elementov, so bile vse celice obiskane in funkcijo je mogoče končati
       if (this.stack.length === 0) {
-        generationComplete = true;
-        
+        document.addEventListener("keydown", move);
+        function move(e) {
+          let key = e.key;
+          let row = current.rowNum;
+          let col = current.colNum;
+
+          switch (key) {
+            case "ArrowUp":
+              if (!current.walls.topWall) {
+                let next = newMaze.grid[row - 1][col];
+                current = next;
+                next.highlight(newMaze.columns);
+              }
+              break;
+
+            case "ArrowRight":
+              if (!current.walls.rightWall) {
+                let next = newMaze.grid[row][col + 1];
+                current = next;
+                next.highlight(newMaze.columns);
+                if (current.goal) complete.style.display = "block";
+              }
+              break;
+
+            case "ArrowDown":
+              if (!current.walls.bottomWall) {
+                let next = newMaze.grid[row + 1][col];
+                current = next;
+                next.highlight(newMaze.columns);
+                if (current.goal) complete.style.display = "block";
+              }
+              break;
+
+            case "ArrowLeft":
+              if (!current.walls.leftWall) {
+                let next = newMaze.grid[row][col - 1];
+                current = next;
+                next.highlight(newMaze.columns);
+              }
+              break;
+          }
+        }
         return;
       }
       //določite hitrost generiranja, in kličite funkcijo dokler funkcija ni dokončana
       window.requestAnimationFrame(() => {
         setTimeout(() => {
           this.draw();
-        }, 50);
+        }, 5);
       });
     }
   }
@@ -196,14 +235,9 @@ function startmaze() {
       img.src = "./images/SG_face.png";
       img.onload = function () {
         ctx.drawImage(img, x, y, icon_size, icon_size);
-        ctx.fillRect(
-          x,
-          y,
-          this.parentSize / columns - 3,
-          this.parentSize / columns - 3
-        );
       };
     }
+
 
     removeWalls(cell1, cell2) {
       // primerja z dvema celicama na osi x
@@ -234,8 +268,8 @@ function startmaze() {
 
       ctx.strokeStyle = "#ffffff";
       ctx.fillStyle = "transparent";
-      ctx.shadowBlur=4;
-      ctx.shadowColor= "#fa4366";
+      ctx.shadowBlur = 4;
+      ctx.shadowColor = "#fa4366";
       ctx.lineWidth = 2;
       if (this.walls.topWall) this.drawTopWall(x, y, size, columns, rows);
       if (this.walls.rightWall) this.drawRightWall(x, y, size, columns, rows);
@@ -247,10 +281,9 @@ function startmaze() {
       if (this.goal) {
         let exitImg = new Image();
         exitImg.src = "./images/SG_money.png";
-       
-          ctx.drawImage(exitImg, x, y, icon_size, icon_size);
-         
-        
+
+        ctx.drawImage(exitImg, x, y, icon_size, icon_size);
+
         //ctx.fillStyle = "white";
         //ctx.fillRect(x + 1, y + 1, size / columns - 2, size / rows - 2);
       }
@@ -262,5 +295,10 @@ function startmaze() {
   newMaze.draw();
 }
 
+/* replay.addEventListener("click", () => {
+  location.reload();
+}); 
 
-
+close.addEventListener("click", () => {
+  complete.style.display = "none";
+}); */

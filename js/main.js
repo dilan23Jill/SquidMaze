@@ -19,3 +19,8 @@ freezeShape3.addEventListener("click", function () {
   freezeShape1.classList.remove("freeze");
   this.classList.toggle("freeze");
 });
+
+let mazeBorderBack = document.querySelector(".mazeBorder");
+function hideCssBackground() {
+  mazeBorderBack.style.backgroundImage = "url(none)";
+}

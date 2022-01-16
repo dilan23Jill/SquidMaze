@@ -4,14 +4,12 @@ body {
 }
 
 body {
-  background-image: url('../images/SG_backgroud.jpg');
+  background-image: url("../images/SG_backgroud.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-
-
-.maze-border {
+.mazeBorder {
   position: absolute;
   display: flex;
   align-items: center;
@@ -19,14 +17,16 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 45em;
-  height: 45em;
+  width: 50em;
+  height: 50em;
   border: #fa4366 solid;
   border-radius: 0.3em;
-  background-image: url('../images/SG_miniSoldiers.png');
+  background-color: black;
+  background-image: url("../images/SG_miniSoldiers.png");
   background-size: cover;
   background-position: 0 -11.94em;
 }
+
 #settings {
   position: absolute;
   top: 45%;

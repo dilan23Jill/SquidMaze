@@ -22,12 +22,10 @@
   </head>
 
   <body>
-     <!--<audio autoplay>
+    <!--<audio autoplay>
       <source src="/audio/SquidGame_Theme.mp3" type="audio/mpeg" />
     </audio>  -->
-    
-    <div class="maze-border">
-      
+    <div class="mazeBorder">
       <form id="settings" action="">
         <p class="difficult">DIFFICULT</p>
 
@@ -44,7 +42,11 @@
           <p class="hard">HARD</p>
         </div>
 
-        <button type="button" id="btnGenerate" onclick="checkDiff()">
+        <button
+          type="button"
+          id="btnGenerate"
+          onclick="checkDiff(); hideCssBackground()" 
+        >
           START
         </button>
       </form>
@@ -61,7 +63,6 @@
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
     <script src="js/maze.js"></script>
-    <script src="js/maze_move.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
