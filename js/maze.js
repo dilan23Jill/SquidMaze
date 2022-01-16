@@ -117,7 +117,15 @@ function startmaze() {
                 let next = newMaze.grid[row][col + 1];
                 current = next;
                 current.highlighRight(newMaze.columns);
-                if (current.goal) complete.style.display = "block";
+                if (current.goal) {
+                  Swal.fire({
+                    title: "YOU WIN!",
+                    html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                    confirmButtonColor: "#fa4366",
+                    confirmButtonText: "PLAY AGAIN",
+
+                  });
+                }
               }
               break;
 
@@ -126,7 +134,14 @@ function startmaze() {
                 let next = newMaze.grid[row + 1][col];
                 current = next;
                 current.highlightDown(newMaze.columns);
-                if (current.goal) complete.style.display = "block";
+                if (current.goal) {
+                  Swal.fire({
+                    title: "YOU WIN!",
+                    html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                    confirmButtonColor: "#fa4366",
+                    confirmButtonText: "PLAY AGAIN",
+                  });
+                }
               }
               break;
 
@@ -270,7 +285,6 @@ function startmaze() {
         ctx.drawImage(img, x, y, icon_size, icon_size);
       };
     }
-    
 
     removeWalls(cell1, cell2) {
       // primerja z dvema celicama na osi x
