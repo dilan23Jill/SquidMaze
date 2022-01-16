@@ -328,6 +328,11 @@ function startmaze() {
               location.reload();
             });
             clearInterval(downloadTimer);
+            function timedRefresh(timeoutPeriod) {
+              setTimeout("location.reload(true);", timeoutPeriod);
+            }
+
+            window.onload = timedRefresh(11000);
           }
         }, 1000);
       } else if (
@@ -349,6 +354,11 @@ function startmaze() {
               location.reload();
             });
             clearInterval(downloadTimer);
+            function timedRefresh(timeoutPeriod) {
+              setTimeout("location.reload(true);", timeoutPeriod);
+            }
+
+            window.onload = timedRefresh(11000);
           }
         }, 1000);
       } else if (document.getElementById("hard").classList.contains("freeze")) {
@@ -368,6 +378,11 @@ function startmaze() {
               location.reload();
             });
             clearInterval(downloadTimer);
+            function timedRefresh(timeoutPeriod) {
+              setTimeout("location.reload(true);", timeoutPeriod);
+            }
+
+            window.onload = timedRefresh(11000);
           }
         }, 1000);
       }
