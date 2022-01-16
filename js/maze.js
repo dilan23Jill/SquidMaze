@@ -420,7 +420,6 @@ function startmaze() {
           newMaze.draw();
           current.highlightDown(newMaze.columns);
           if (current.goal) {
-            clearInterval(downloadTimer);
             Swal.fire({
               title: "YOU WIN!",
               html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
