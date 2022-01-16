@@ -312,63 +312,61 @@ function startmaze() {
     if (!i) {
       i = true;
       if (document.getElementById("easy").classList.contains("freeze")) {
-        var timeleft = 20;
+        var timeleft = 15;
         var downloadTimer = setInterval(function () {
           timeleft--;
           document.getElementById("time").textContent = timeleft;
-          if (timeleft <= 0){
-            Swal.fire(
-              {
-                title: "YOU LOSE!",
-                html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-                confirmButtonColor: "#fa4366",
-                confirmButtonText: "PLAY AGAIN",
-              }).then(function(){ 
-                location.reload();
-                }
-              
-            );clearInterval(downloadTimer);
-          } 
+          if (current.goal) {
+            clearInterval(downloadTimer);}
+          if (timeleft <= 0) {
+            Swal.fire({
+              title: "YOU LOSE!",
+              html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+              confirmButtonColor: "#fa4366",
+              confirmButtonText: "PLAY AGAIN",
+            }).then(function () {
+              location.reload();
+            });
+            clearInterval(downloadTimer);
+          }
         }, 1000);
       } else if (
         document.getElementById("medium").classList.contains("freeze")
       ) {
-        var timeleft = 40;
+        var timeleft = 25;
         var downloadTimer = setInterval(function () {
           timeleft--;
           document.getElementById("time").textContent = timeleft;
-          if (timeleft <= 0){
-            Swal.fire(
-              {
-                title: "YOU LOSE!",
-                html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-                confirmButtonColor: "#fa4366",
-                confirmButtonText: "PLAY AGAIN",
-              }).then(function(){ 
-                location.reload();
-                }
-              
-            );
+          if (current.goal) {
+            clearInterval(downloadTimer);}
+          if (timeleft <= 0) {
+            Swal.fire({
+              title: "YOU LOSE!",
+              html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+              confirmButtonColor: "#fa4366",
+              confirmButtonText: "PLAY AGAIN",
+            }).then(function () {
+              location.reload();
+            });
             clearInterval(downloadTimer);
-          } 
+          }
         }, 1000);
       } else if (document.getElementById("hard").classList.contains("freeze")) {
-        var timeleft = 60;
+        var timeleft = 35;
         var downloadTimer = setInterval(function () {
           timeleft--;
           document.getElementById("time").textContent = timeleft;
-          if (timeleft <= 0){ 
-            Swal.fire(
-              {
-                title: "YOU LOSE!",
-                html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-                confirmButtonColor: "#fa4366",
-                confirmButtonText: "PLAY AGAIN",
-              }).then(function(){ 
-                location.reload();
-                }
-              
-            );
+          if (current.goal) {
+            clearInterval(downloadTimer);}
+          if (timeleft <= 0) {
+            Swal.fire({
+              title: "YOU LOSE!",
+              html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+              confirmButtonColor: "#fa4366",
+              confirmButtonText: "PLAY AGAIN",
+            }).then(function () {
+              location.reload();
+            });
             clearInterval(downloadTimer);
           }
         }, 1000);
@@ -397,17 +395,15 @@ function startmaze() {
           newMaze.draw();
           current.highlighRight(newMaze.columns);
           if (current.goal) {
-            Swal.fire(
-              {
-                title: "YOU WIN!",
-                html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-                confirmButtonColor: "#fa4366",
-                confirmButtonText: "PLAY AGAIN",
-              }).then(function(){ 
-                location.reload();
-                }
-              
-            );
+            
+            Swal.fire({
+              title: "YOU WIN!",
+              html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+              confirmButtonColor: "#fa4366",
+              confirmButtonText: "PLAY AGAIN",
+            }).then(function () {
+              location.reload();
+            });
             function timedRefresh(timeoutPeriod) {
               setTimeout("location.reload(true);", timeoutPeriod);
             }
@@ -424,14 +420,15 @@ function startmaze() {
           newMaze.draw();
           current.highlightDown(newMaze.columns);
           if (current.goal) {
+            clearInterval(downloadTimer);
             Swal.fire({
               title: "YOU WIN!",
               html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
               confirmButtonColor: "#fa4366",
               confirmButtonText: "PLAY AGAIN",
-            }).then(function(){ 
+            }).then(function () {
               location.reload();
-              });
+            });
             function timedRefresh(timeoutPeriod) {
               setTimeout("location.reload(true);", timeoutPeriod);
             }
