@@ -27,12 +27,12 @@ function checkDiff() {
 }
 var info = document.querySelector(".info");
 var credits = document.querySelector(".credits");
-
+let genCom=1;
 var countDwn = document.getElementById("countDwnDiv");
 countDwn.style.display = "none";
 function startmaze() {
-   info.style.display="none";
-   credits.style.display="none";
+  info.style.display = "none";
+  credits.style.display = "none";
 
   countDwn.style.display = "block";
 
@@ -114,9 +114,8 @@ function startmaze() {
       }
       // Če v skladu ni več elementov, so bile vse celice obiskane in funkcijo je mogoče končati
       if (this.stack.length === 0) {
-       generationComplete = true; 
-       return;
-        
+        generationComplete = true;
+        return;
       }
       //določite hitrost generiranja, in kličite funkcijo dokler funkcija ni dokončana
       window.requestAnimationFrame(() => {
@@ -185,7 +184,6 @@ function startmaze() {
         return neighbours[random];
       } else {
         return undefined;
-        
       }
     }
     // Funkcije risanja sten za vsako celico. Klicana bo, če je ustrezna stena v konstruktorju celic nastavljena na true
@@ -313,23 +311,25 @@ function startmaze() {
       }
     }
   }
-  if(generationComplete = true){
-    console.log("yay");
-  }
+ 
   var i = false;
   document.addEventListener("keydown", move);
+  
   document.addEventListener("keydown", startcountdown);
 
   function startcountdown() {
+    if(!generationComplete)
+    return;
     if (!i) {
       i = true;
       if (document.getElementById("easy").classList.contains("freeze")) {
-        var timeleft = 10;
+        var timeleft = 15;
         var downloadTimer = setInterval(function () {
           timeleft--;
           document.getElementById("time").textContent = timeleft;
           if (current.goal) {
-            clearInterval(downloadTimer);}
+            clearInterval(downloadTimer);
+          }
           if (timeleft <= 0) {
             Swal.fire({
               title: "YOU LOSE!",
@@ -355,7 +355,8 @@ function startmaze() {
           timeleft--;
           document.getElementById("time").textContent = timeleft;
           if (current.goal) {
-            clearInterval(downloadTimer);}
+            clearInterval(downloadTimer);
+          }
           if (timeleft <= 0) {
             Swal.fire({
               title: "YOU LOSE!",
@@ -379,7 +380,8 @@ function startmaze() {
           timeleft--;
           document.getElementById("time").textContent = timeleft;
           if (current.goal) {
-            clearInterval(downloadTimer);}
+            clearInterval(downloadTimer);
+          }
           if (timeleft <= 0) {
             Swal.fire({
               title: "YOU LOSE!",
@@ -400,7 +402,10 @@ function startmaze() {
       }
     }
   }
+
   function move(e) {
+    if(!generationComplete)
+    return;
     let key = e.key;
     let row = current.rowNum;
     let col = current.colNum;
@@ -422,7 +427,6 @@ function startmaze() {
           newMaze.draw();
           current.highlighRight(newMaze.columns);
           if (current.goal) {
-            
             Swal.fire({
               title: "YOU WIN!",
               html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',

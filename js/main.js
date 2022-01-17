@@ -20,23 +20,46 @@ freezeShape3.addEventListener("click", function () {
   this.classList.toggle("freeze");
 });
 
-function showCredits(){
+function showCredits() {
   Swal.fire({
     title: "INSTRUCTIONS!",
-    text: "THE GOAL IS TO ESCAPE THE FRONTMAN THROUGH LABIRINT, BUT BE CAREFUL YOU DO NOT HAVE A LOT OF TIME! GOOD LUCK",
+    text: "ESCAPE THE FRONTMAN THROUGH LABYRINTH, BUT BE CAREFUL YOU DON'T HAVE A LOT OF TIME! GOOD LUCK",
     confirmButtonColor: "#fa4366",
     imageWidth: 515,
     imageHeight: 300,
     imageAlt: "SG_SWEETALERT",
   });
 }
-function showInfo(){
+function showInfo() {
   Swal.fire({
     title: "CREDITS!",
-    text:"MADE BY DILAN MUŽIČ",
+    text: "MADE BY DILAN MUŽIČ",
     confirmButtonColor: "#fa4366",
     imageWidth: 515,
     imageHeight: 300,
     imageAlt: "SG_SWEETALERT",
   });
+}
+var audioPlay = document.getElementById("playBtn");
+var audioStop = document.getElementById("playBtn2");
+var hidPlay = document.querySelector(".playAudio");
+var showPlay = document.querySelector(".playAudio2");
+var song1 = document.getElementById("sound");
+audioPlay.style.visibility = "hidden";
+hidPlay.style.visibility = "hidden";
+
+function playSound() {
+  audioPlay.style.visibility = "hidden";
+  hidPlay.style.visibility = "hidden";
+  audioStop.style.visibility = "visible";
+  showPlay.style.visibility = "visible";
+  song1.pause();
+}
+
+function stopSound() {
+  audioStop.style.visibility = "hidden";
+  showPlay.style.visibility = "hidden";
+  audioPlay.style.visibility = "visible";
+  hidPlay.style.visibility = "visible";
+  song1.play();
 }
