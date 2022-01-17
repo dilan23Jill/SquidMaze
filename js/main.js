@@ -20,3 +20,23 @@ freezeShape3.addEventListener("click", function () {
   this.classList.toggle("freeze");
 });
 
+function showCredits(){
+  Swal.fire({
+    title: "INSTRUCTIONS!",
+    text: "THE GOAL IS TO ESCAPE THE FRONTMAN THROUGH LABIRINT, BUT BE CAREFUL YOU DO NOT HAVE A LOT OF TIME! GOOD LUCK",
+    confirmButtonColor: "#fa4366",
+    imageWidth: 515,
+    imageHeight: 300,
+    imageAlt: "SG_SWEETALERT",
+  });
+}
+function showInfo(){
+  Swal.fire({
+    title: "CREDITS!",
+    text:"MADE BY DILAN MUŽIČ",
+    confirmButtonColor: "#fa4366",
+    imageWidth: 515,
+    imageHeight: 300,
+    imageAlt: "SG_SWEETALERT",
+  });
+}

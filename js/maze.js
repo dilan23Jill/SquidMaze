@@ -25,9 +25,15 @@ function checkDiff() {
     });
   }
 }
+var info = document.querySelector(".info");
+var credits = document.querySelector(".credits");
+
 var countDwn = document.getElementById("countDwnDiv");
 countDwn.style.display = "none";
 function startmaze() {
+   info.style.display="none";
+   credits.style.display="none";
+
   countDwn.style.display = "block";
 
   var SquidAudio1 = new Audio("audio/redLight_greenLight.mp3");
@@ -304,6 +310,7 @@ function startmaze() {
       }
     }
   }
+  
   var i = false;
   document.addEventListener("keydown", move);
   document.addEventListener("keydown", startcountdown);
@@ -312,7 +319,7 @@ function startmaze() {
     if (!i) {
       i = true;
       if (document.getElementById("easy").classList.contains("freeze")) {
-        var timeleft = 15;
+        var timeleft = 10;
         var downloadTimer = setInterval(function () {
           timeleft--;
           document.getElementById("time").textContent = timeleft;
@@ -338,7 +345,7 @@ function startmaze() {
       } else if (
         document.getElementById("medium").classList.contains("freeze")
       ) {
-        var timeleft = 25;
+        var timeleft = 20;
         var downloadTimer = setInterval(function () {
           timeleft--;
           document.getElementById("time").textContent = timeleft;
@@ -362,7 +369,7 @@ function startmaze() {
           }
         }, 1000);
       } else if (document.getElementById("hard").classList.contains("freeze")) {
-        var timeleft = 35;
+        var timeleft = 30;
         var downloadTimer = setInterval(function () {
           timeleft--;
           document.getElementById("time").textContent = timeleft;
