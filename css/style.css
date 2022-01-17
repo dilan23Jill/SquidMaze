@@ -195,15 +195,12 @@ body {
     transform: translate(0);
   }
 }
-
-@media (min-width: 768px) {
   #btnGenerate,
   #btnGenerate:after {
     width: 200px;
     height: 3.2em;
-    line-height: 3em;
-  }
 }
+
 .credits, .info{
   width:3.8em;
   height:3.8em;
@@ -224,25 +221,30 @@ body {
 .info{
   right: 1em;
 }
-.credits:hover, .info:hover{
-  background-color: #00e6f6;
-}
+
 #instructions{
-  width:3em;
-  height: 2.6em;
+  width: 2.4em;
+  height: 3em;
+  border-radius: 50%;
   fill:black;
   transition:0.7s ease-in-out;
-
 }
-#instructions:hover{
-    fill:#fa4366;
-  }
+
 #info1{
-  width:3em;
+  border-radius: 50%;
+  width: 3em;
   height: 3em;
   fill:black;
   transition:0.7s ease-in-out;
 }
-#info1:hover{
+.credits:hover  {
+  background-color: #00e6f6;
+}
+.info:hover  {
+  background-color: #00e6f6;
+}
+
+
+.credits:hover #instructions, .info:hover #info1{
   fill:#fa4366;
 }

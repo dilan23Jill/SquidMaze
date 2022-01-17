@@ -49,7 +49,7 @@ function startmaze() {
   var maze = document.querySelector(".maze");
   let ctx = maze.getContext("2d");
   let size = 600;
-
+  let generationComplete = false;
   let icon_size = (size / (row_col * row_col)) * row_col;
   let current;
   let goal;
@@ -114,7 +114,9 @@ function startmaze() {
       }
       // Če v skladu ni več elementov, so bile vse celice obiskane in funkcijo je mogoče končati
       if (this.stack.length === 0) {
-        return;
+       generationComplete = true; 
+       return;
+        
       }
       //določite hitrost generiranja, in kličite funkcijo dokler funkcija ni dokončana
       window.requestAnimationFrame(() => {
@@ -183,6 +185,7 @@ function startmaze() {
         return neighbours[random];
       } else {
         return undefined;
+        
       }
     }
     // Funkcije risanja sten za vsako celico. Klicana bo, če je ustrezna stena v konstruktorju celic nastavljena na true
@@ -310,7 +313,9 @@ function startmaze() {
       }
     }
   }
-  
+  if(generationComplete = true){
+    console.log("yay");
+  }
   var i = false;
   document.addEventListener("keydown", move);
   document.addEventListener("keydown", startcountdown);
