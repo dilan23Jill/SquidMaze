@@ -4,9 +4,7 @@ body {
 }
 
 body {
-  background-image: url("../images/SG_backgroud.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background:linear-gradient(#fa4366, black);
 }
 
 .mazeBorder {
@@ -19,12 +17,11 @@ body {
   transform: translate(-50%, -50%);
   width: 50em;
   height: 50em;
-  border: #fa4366 solid;
-  border-radius: 0.3em;
-  background-color: black;
+  border-radius: 2em;
   background-image: url("../images/SG_miniSoldiers.png");
   background-size: cover;
   background-position: 0 -11.94em;
+  background-color: black;
 }
 .countdown {
   color: #fa4366;
@@ -51,8 +48,7 @@ body {
   font-size: 2em;
 }
 
-.shape,
-.shape.unfreeze {
+.shape {
   display: inline-block;
   text-align: center;
   margin-top: 1.5em;
@@ -61,9 +57,7 @@ body {
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-.shape.unfreeze ion-icon {
-  font-size: 4em;
-}
+
 .shape ion-icon {
   color: black;
   transition: 0.5s ease-in-out;
@@ -73,7 +67,6 @@ body {
 .shape:hover,
 .shape.freeze {
   color: #fa4366;
-  font-size: 1em;
   filter: drop-shadow(0 0 20px #fa4366) drop-shadow(0 0 50px #fa4366)
     drop-shadow(0 0 80px #fa4366) drop-shadow(0 0 130px #fa4366)
     drop-shadow(0 0 180px #fa4366);
@@ -205,8 +198,8 @@ body {
 .info,
 .playAudio,
 .playAudio2 {
-  width: 3.8em;
-  height: 3.8em;
+  width: 3em;
+  height: 3em;
   background-color: #ffffff;
   border-radius: 50%;
   cursor: pointer;

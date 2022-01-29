@@ -19,8 +19,10 @@ freezeShape3.addEventListener("click", function () {
   freezeShape1.classList.remove("freeze");
   this.classList.toggle("freeze");
 });
+var infoSound = new Audio("./audio/audio3.mp3");
 
 function showCredits() {
+  infoSound.play();
   Swal.fire({
     title: "INSTRUCTIONS!",
     text: "ESCAPE THE FRONTMAN THROUGH LABYRINTH, BUT BE CAREFUL YOU DON'T HAVE A LOT OF TIME! GOOD LUCK",
@@ -31,6 +33,7 @@ function showCredits() {
   });
 }
 function showInfo() {
+  infoSound.play();
   Swal.fire({
     title: "CREDITS!",
     text: "MADE BY DILAN MUŽIČ",

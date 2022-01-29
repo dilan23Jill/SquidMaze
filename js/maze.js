@@ -14,6 +14,8 @@ function checkDiff() {
     }
     startmaze();
   } else {
+    infoSound.play();
+
     Swal.fire({
       title: "ALERT!",
       text: "CHOOSE DIFFICULT",
@@ -331,6 +333,8 @@ function startmaze() {
             clearInterval(downloadTimer);
           }
           if (timeleft <= 0) {
+            song1.pause();
+
             Swal.fire({
               title: "YOU LOSE!",
               html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
@@ -358,6 +362,8 @@ function startmaze() {
             clearInterval(downloadTimer);
           }
           if (timeleft <= 0) {
+            song1.pause();
+
             Swal.fire({
               title: "YOU LOSE!",
               html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
@@ -383,6 +389,8 @@ function startmaze() {
             clearInterval(downloadTimer);
           }
           if (timeleft <= 0) {
+            song1.pause();
+
             Swal.fire({
               title: "YOU LOSE!",
               html: '<iframe width="450" height="300" src="./video/losing_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
@@ -427,7 +435,10 @@ function startmaze() {
           newMaze.draw();
           current.highlighRight(newMaze.columns);
           if (current.goal) {
+            song1.pause();
+
             Swal.fire({
+
               title: "YOU WIN!",
               html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
               confirmButtonColor: "#fa4366",
@@ -451,6 +462,8 @@ function startmaze() {
           newMaze.draw();
           current.highlightDown(newMaze.columns);
           if (current.goal) {
+            song1.pause();
+
             Swal.fire({
               title: "YOU WIN!",
               html: '<iframe width="450" height="300" src="./video/winning_SweetAlert.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
