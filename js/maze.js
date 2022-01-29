@@ -43,7 +43,7 @@ function startmaze() {
 
   var mazeBorderBack = document.querySelector(".mazeBorder");
 
-  mazeBorderBack.style.backgroundImage = "url(none)";
+  mazeBorderBack.style.backgroundImage = "url('')";
 
   document.getElementById("btnGenerate").style.visibility = "hidden";
   document.getElementById("settings").style.visibility = "hidden";
