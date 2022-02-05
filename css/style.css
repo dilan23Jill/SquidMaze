@@ -56,12 +56,21 @@ body {
   height: 40%;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+
 }
 
 .shape ion-icon {
   color: black;
   transition: 0.5s ease-in-out;
-  cursor: pointer;
+  -o-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out; 
+   cursor: pointer;
   font-size: 2em;
 }
 .shape:hover,
@@ -206,7 +215,11 @@ body {
   position: absolute;
   top: 1em;
   transition: 0.7s ease-in-out;
-  display: flex;
+  -o-transition: 0.7s ease-in-out;
+  -ms-transition: 0.7s ease-in-out;
+  -moz-transition: 0.7s ease-in-out;
+  -webkit-transition: 0.7s ease-in-out; 
+   display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -228,19 +241,28 @@ body {
   margin-top: 0.2em;
   fill: black;
   transition: 0.7s ease-in-out;
-}
+  -o-transition: 0.7s ease-in-out;
+  -ms-transition: 0.7s ease-in-out;
+  -moz-transition: 0.7s ease-in-out;
+  -webkit-transition: 0.7s ease-in-out; }
 #playBtn {
   width: 50%;
   margin-left: 0.4em;
   fill: black;
   transition: 0.7s ease-in-out;
-}
+  -o-transition: 0.7s ease-in-out;
+  -ms-transition: 0.7s ease-in-out;
+  -moz-transition: 0.7s ease-in-out;
+  -webkit-transition: 0.7s ease-in-out; }
 #playBtn2 {
   width: 50%;
   margin-left: 0.2em;
   fill: black;
   transition: 0.7s ease-in-out;
-  z-index: 1;
+  -o-transition: 0.7s ease-in-out;
+  -ms-transition: 0.7s ease-in-out;
+  -moz-transition: 0.7s ease-in-out;
+  -webkit-transition: 0.7s ease-in-out;   z-index: 1;
 }
 #info1 {
   width: 3em;
@@ -248,7 +270,10 @@ body {
   margin-right: 0.2em;
   fill: black;
   transition: 0.7s ease-in-out;
-}
+  -o-transition: 0.7s ease-in-out;
+  -ms-transition: 0.7s ease-in-out;
+  -moz-transition: 0.7s ease-in-out;
+  -webkit-transition: 0.7s ease-in-out; }
 .playAudio:hover {
   background-color: #00e6f6;
 }
