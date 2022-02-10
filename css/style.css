@@ -1,11 +1,9 @@
-
 body {
   height: 100vh;
 }
-.full{
+.full {
   height: 100vh;
-  background: linear-gradient(white, #fa4366); 
-
+  background: linear-gradient(white, #fa4366);
 }
 
 .mazeBorder {
@@ -30,7 +28,6 @@ body {
   top: 1em;
   left: 1em;
   font-size: 1.5em;
-  
 }
 #time {
   color: white;
@@ -62,7 +59,6 @@ body {
   -ms-transition: 0.3s ease-in-out;
   -moz-transition: 0.3s ease-in-out;
   -webkit-transition: 0.3s ease-in-out;
-
 }
 
 .shape ion-icon {
@@ -71,23 +67,16 @@ body {
   -o-transition: 0.5s ease-in-out;
   -ms-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
-  -webkit-transition: 0.5s ease-in-out; 
-   cursor: pointer;
+  -webkit-transition: 0.5s ease-in-out;
+  cursor: pointer;
   font-size: 2em;
 }
-.shape:hover,
-.shape.freeze {
-  color: #fa4366;
-  filter: drop-shadow(0 0 20px #fa4366) drop-shadow(0 0 50px #fa4366)
-    drop-shadow(0 0 80px #fa4366) drop-shadow(0 0 130px #fa4366)
-    drop-shadow(0 0 180px #fa4366);
-}
+
 .shape:hover ion-icon {
-  color: #ffffff;
   font-size: 4em;
 }
 .shape.freeze ion-icon {
-  color: #fff;
+  color: #fa4366;
   font-size: 4em;
 }
 
@@ -220,8 +209,8 @@ body {
   -o-transition: 0.7s ease-in-out;
   -ms-transition: 0.7s ease-in-out;
   -moz-transition: 0.7s ease-in-out;
-  -webkit-transition: 0.7s ease-in-out; 
-   display: flex;
+  -webkit-transition: 0.7s ease-in-out;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -246,7 +235,8 @@ body {
   -o-transition: 0.7s ease-in-out;
   -ms-transition: 0.7s ease-in-out;
   -moz-transition: 0.7s ease-in-out;
-  -webkit-transition: 0.7s ease-in-out; }
+  -webkit-transition: 0.7s ease-in-out;
+}
 #playBtn {
   width: 50%;
   margin-left: 0.4em;
@@ -255,7 +245,8 @@ body {
   -o-transition: 0.7s ease-in-out;
   -ms-transition: 0.7s ease-in-out;
   -moz-transition: 0.7s ease-in-out;
-  -webkit-transition: 0.7s ease-in-out; }
+  -webkit-transition: 0.7s ease-in-out;
+}
 #playBtn2 {
   width: 50%;
   margin-left: 0.2em;
@@ -264,7 +255,8 @@ body {
   -o-transition: 0.7s ease-in-out;
   -ms-transition: 0.7s ease-in-out;
   -moz-transition: 0.7s ease-in-out;
-  -webkit-transition: 0.7s ease-in-out;   z-index: 1;
+  -webkit-transition: 0.7s ease-in-out;
+  z-index: 1;
 }
 #info1 {
   width: 3em;
@@ -275,7 +267,8 @@ body {
   -o-transition: 0.7s ease-in-out;
   -ms-transition: 0.7s ease-in-out;
   -moz-transition: 0.7s ease-in-out;
-  -webkit-transition: 0.7s ease-in-out; }
+  -webkit-transition: 0.7s ease-in-out;
+}
 .playAudio:hover {
   background-color: #00e6f6;
 }
